@@ -269,10 +269,11 @@
     <script>
       let currentLang = 'fr';
 
-      const dossierFromPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      if (dossierFromPath && /^\d+$/.test(dossierFromPath)) {
+      const params = new URLSearchParams(window.location.search);
+      const dossierId = params.get('id');
+      if (dossierId && /^\d+$/.test(dossierId)) {
         document.addEventListener('DOMContentLoaded', () => {
-          document.getElementById('val-dossier').textContent = dossierFromPath;
+          document.getElementById('val-dossier').textContent = dossierId;
         });
       }
 
