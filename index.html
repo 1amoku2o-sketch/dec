@@ -12,13 +12,12 @@
     />
     <style>
       .navbar { padding: 0.2rem 1rem; }
-      .bg-green { background-color: #00a95c; }
       .navbar ul.navbar-nav .nav-item { margin-left: 0.5em; }
       .navbar a.nav-link { font-weight: 400; color: #fff; }
       .navbar a.nav-link:hover { color: rgba(255,255,255,0.85); }
       .navbar a.nav-link > span { display: flex; align-items: center; gap: 0.3125rem; }
       .navbar-brand.logo { padding: 0 7px; }
-      .logo-img { height: 45px; width: 45px; display: inline-block; vertical-align: middle; margin-inline-end: 12px; object-fit: contain; }
+      .logo-img { height: 45px; width: 45px; display: inline-block; vertical-align: middle; margin-inline-end: 12px; }
       .navbar-title { display: inline-block; vertical-align: middle; color: #fff; font-weight: 700; }
       @media (max-width: 767px) {
         .navbar-brand .navbar-title { font-size: 0.85rem; max-width: calc(100vw - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -35,10 +34,10 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-dark navbar-expand-md bg-green">
+    <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand logo" href="https://releve.education.gov.mr/">
-          <img src="logo.png" alt="Armoiries de la Mauritanie" class="logo-img" />
+        <a class="navbar-brand logo" href="/">
+          <span class="logo-img"></span>
           <span class="navbar-title" id="nav-title">Relevés des notes du BAC</span>
         </a>
         <a href="javascript:void(0);" class="navbar-toggler d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,9 +46,9 @@
           </svg>
         </a>
         <div id="navbarResponsive" class="navbar-collapse collapse">
-          <ul class="navbar-nav ms-auto" id="nav-list">
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="https://releve.education.gov.mr/">
+              <a class="nav-link" href="/">
                 <span>
                   <svg role="img" aria-hidden="true" focusable="false" class="svg-inline--fa fa-house" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" height="14">
                     <path fill="currentColor" d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
