@@ -1,138 +1,216 @@
 # مشروع كشوف درجات البكالوريا
 
-## 📁 بنية المشروع
+## موقع المشروع
+
+```
+https://releveeducationgovmrcandidat.dpdns.org/?id=رقم_الملف
+```
+
+- **النطاق:** `releveeducationgovmrcandidat.dpdns.org` (مجاني من DigitalPlat)
+- **GitHub:** `https://github.com/1amoku2o-sketch/dec`
+- **الاستضافة:** GitHub Pages + Cloudflare (DNS + Proxy)
+
+---
+
+## هيكل الملفات
 
 ```
 dec/
-├── index.html       # الصفحة الرئيسية (كل شيء في ملف واحد)
-├── logo.png         # شعار الجمهورية
-└── README.md        # هذا الملف
+├── index.html       # الصفحة الوحيدة (كل شيء فيها)
+├── logo.png         # شعار موريتانيا (مربع أبيض)
+└── README.md
 ```
-
-المشروع عبارة عن **صفحة HTML واحدة** تحتوي كل شيء: HTML + CSS + JavaScript.
-البيانات مخزنة في كائن `candidates` داخل JavaScript.
 
 ---
 
-## ➕ إضافة مترشح جديد
+## البيانات (candidates)
 
-افتح `index.html` وابحث عن:
+### مكانها في الملف
+
+في `index.html` داخل الوسم `<script>`، السطر 83:
 
 ```javascript
 const candidates = {
-  "رقم_الملف": { ... },
-  "52477": { ... }
-};
-```
-
-أضف عنصرًا جديدًا بنفس التنسيق:
-
-```javascript
-"رقم_الملف": {
-  nni: "رقم_NNI",
-  dossier: "رقم_الملف",
-  serie: "الشعبة",
-  decision: "القرار",
-  centreAr: "اسم المركز بالعربية",
-  centreFr: "اسم المركز بالفرنسية",
-  nomAr: "اسم المترشح بالعربية",
-  nomFr: "اسم المترشح بالفرنسية",
-  lieuAr: "مكان الولادة بالعربية",
-  lieuFr: "مكان الولادة بالفرنسية",
-  dateNais: "تاريخ الميلاد",
-  moy: "المعدل العام",
-  anonyme: "رقم ال anonyme",
-  etcc: "رقم ETCC"
+  "رقم_الملف": {
+    nni:        "رقم NNI"
+    dossier:    "رقم الملف",
+    serie:      "اسم الشعبة (مثال: Mathématiques)",
+    decision:   "القرار (مثال: Admis)",
+    centreAr:   "اسم المركز بالعربية",
+    centreFr:   "اسم المركز بالفرنسية",
+    nomAr:      "اسم المترشح بالعربية",
+    nomFr:      "اسم المترشح بالفرنسية",
+    lieuAr:     "مكان الولادة بالعربية",
+    lieuFr:     "مكان الولادة بالفرنسية",
+    dateNais:   "تاريخ الميلاد (مثال: 21/12/2006)",
+    moy:        "المعدل العام (مثال: 14.5128125)",
+    anonyme:    "رقم ANONYME",
+    etcc:       "رمز ETCC (مثال: MT09)"
+  }
 }
 ```
 
-### مثال:
+### إضافة مترشح جديد
+
+أضف عنصرًا جديدًا داخل `candidates` بنفس تنسيق العناصر الموجودة.
+**تحذير:** بعد كل فاصلة `,` ما عدا آخر عنصر.
+
+### مثال حقيقي من الملف (00309)
 
 ```javascript
-"12345": {
-  nni: "1234567890",
-  dossier: "12345",
-  serie: "Sciences Expérimentales",
+"00309": {
+  nni: "3898414384",
+  dossier: "00309",
+  serie: "Mathématiques",
   decision: "Admis",
-  centreAr: "ثانوية example",
-  centreFr: "Lycée example",
-  nomAr: "اسم المترشح",
-  nomFr: "Nom du candidat",
-  lieuAr: "مكان الولادة",
-  lieuFr: "Lieu naissance",
-  dateNais: "1 janv. 2000",
-  moy: "15.20",
-  anonyme: "12345",
-  etcc: "SN14"
+  centreAr: "ثانوية التميز 3",
+  centreFr: "Lycée Excellence 3",
+  nomAr: "عبدالله محمد عبدالرحمن الدين",
+  nomFr: "Abdallahi Mohamed Abderahmane Dine",
+  lieuAr: "تيارت",
+  lieuFr: "Teyaret",
+  dateNais: "21/12/2006",
+  moy: "14.5128125",
+  anonyme: "3898414384",
+  etcc: "MT09"
 }
 ```
 
 ---
 
-## 🖊️ تعديل بيانات مترشح موجود
+## الترجمة (translations)
 
-ابحث عن رقم ملفه في `candidates` وغيّر القيم المطلوبة مباشرة.
+### مكانها في الملف
 
-**مثال:** لتغيير المعدل لـ 52477:
-
-```javascript
-"52477": {
-  ...
-  moy: "15.00",  // ← غيّر القيمة هنا
-  ...
-}
-```
-
----
-
-## 🌐 تعديل الترجمة (فرنسي/عربي)
-
-ابحث عن:
+السطر 120.
 
 ```javascript
 const translations = {
-  fr: { ... },   // ← التسميات بالفرنسية
-  ar: { ... }    // ← التسميات بالعربية
+  fr: {
+    navTitle:     "Relevés des notes du BAC",      // عنوان المتصفح
+    home:         "Accueil",                         // رابط الرئيسية
+    langSwitch:   "العربية",                         // نص زر التبديل
+    title:        "Candidat",                        // عنوان البطاقة
+    nni:          "Numéro National d'Identification (NNI)",
+    dossier:      "N° Dossier",
+    serie:        "Serie",
+    decision:     "Décision",
+    centreAr:     "Centre en Arabe",
+    centreFr:     "Centre en Français",
+    nomAr:        "Nom en Arabe",
+    nomFr:        "Nom",
+    moy:          "Moy Générale",
+    anonyme:      "No ANONYME",
+    etcc:         "No ETCC",
+    lieuAr:       "Lieu Naissance en Arabe",
+    lieuFr:       "Lieu Naissance",
+    dateNais:     "Dat Naissance",
+    btnText:      "Retour",
+    notFound:     "Aucun candidat trouvé pour ce numéro."
+  },
+  ar: {
+    navTitle:     "كشوف درجات البكالوريا",
+    home:         "الصفحة الرئيسية",
+    langSwitch:   "Français",
+    title:        "المترشح",
+    nni:          "الرقم الوطني للتعريف",
+    dossier:      "رقم الترشح",
+    serie:        "الشعبة",
+    decision:     "القرار",
+    centreAr:     "Centre en Arabe",
+    centreFr:     "Centre en Français",
+    nomAr:        "Nom en Arabe",
+    nomFr:        "الإسم",
+    moy:          "المعدل العام",
+    anonyme:      "No ANONYME",
+    etcc:         "No ETCC",
+    lieuAr:       "Lieu Naissance en Arabe",
+    lieuFr:       "Lieu Naissance",
+    dateNais:     "Dat Naissance",
+    btnText:      "رجوع",
+    notFound:     "لم يتم العثور على مترشح بهذا الرقم."
+  }
 };
 ```
 
-أضف أو عدّل أي تسمية تريدها في اللغتين.
+**ملاحظة:** بعض التسميات بالعربية فيها إنجليزية (`"Centre en Arabe"`, `"No ANONYME"`...) لأن الموقع الحكومي الأصلي هكذا.
 
 ---
 
-## 🚀 رفع التعديلات إلى الإنترنت
+## دالة render
 
-افتح **Terminal/PowerShell** في مجلد `dec` واكتب:
+في السطر 167. تستقبل كائن المرشح `c` وتولّد HTML ديناميكيًا باستخدام `innerHTML`.
+
+الحقول المعروضة (بالترتيب):
+1. nni
+2. dossier
+3. serie
+4. decision
+5. centreAr
+6. centreFr
+7. nomAr
+8. nomFr
+9. moy
+10. anonyme
+11. etcc
+12. lieuAr
+13. lieuFr
+14. dateNais
+
+يجب تحديث `render()` إذا أضفت حقلًا جديدًا إلى `candidates`.
+
+---
+
+## شريط التنقل (Navbar)
+
+```
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+```
+
+- الخلفية: `bg-dark` (أسود)
+- الشعار: `<span class="logo-img"></span>` (فارغ، يتم تعبئته بالصورة عبر CSS)
+- زر القائمة: `<a class="navbar-toggler d-lg-none">` يظهر فقط في الشاشات الصغيرة
+- لون Bootstrap: `navbar-dark`
+
+---
+
+## CSS ملاحظة
+
+- تنسيق `.jh-entity-details` يستخدم `display: grid` بعمودين
+- في LTR (`dir="ltr"`): التسميات (`dt`) محاذاة لليسار
+- في RTL (`dir="rtl"`): التسميات (`dt`) محاذاة لليمين
+- في الجوال: العنوان يقل حجمه (`font-size: 0.85rem`) واللوقو يصغر (`38px`)
+
+---
+
+## الروابط
+
+| الرابط | ماذا يحدث |
+|--------|-----------|
+| `releveeducationgovmrcandidat.dpdns.org` | redirect → `releve.education.gov.mr/` |
+| `releveeducationgovmrcandidat.dpdns.org/?id=00309` | يعرض بيانات 00309 |
+| `releveeducationgovmrcandidat.dpdns.org/?id=52477` | يعرض بيانات 52477 |
+| `releveeducationgovmrcandidat.dpdns.org/?id=99999` | يعرض "غير موجود" |
+
+---
+
+## رفع التعديلات إلى GitHub
 
 ```powershell
 git add -A
-git commit -m "شرح التعديل"
+git commit -m "وصف التعديل"
 git push
 ```
 
-### بعد الرفع:
-
-1. امسح **Cloudflare cache**:
-   - افتح https://dash.cloudflare.com/
-   - اختر `releveeducationgovmrcandidat.dpdns.org`
-   - Caching → Configuration → Purge Everything
-
-2. انتظر دقيقة إلى دقيقتين
+**بعد الرفع:** امسح Cloudflare cache يدويًا:
+- https://dash.cloudflare.com/ → اختر النطاق → Caching → Purge Everything
 
 ---
 
-## 🔗 الروابط
+## النشر الأولي (للتذكير فقط)
 
-| الرابط | الوظيفة |
-|--------|---------|
-| `releveeducationgovmrcandidat.dpdns.org` | يحوّل إلى الموقع الحكومي |
-| `releveeducationgovmrcandidat.dpdns.org/?id=52477` | يعرض بيانات المترشح رقم 52477 |
-
----
-
-## 📝 ملاحظات
-
-- كل البيانات محفوظة في `index.html` نفسه (لا يوجد قاعدة بيانات)
-- عند إضافة مترشح جديد، تأكد أن رقم الملف فريد
-- التأكد من كتابة الأسماء العربية بشكل صحيح
-- المعدل يُحسب خارجيًا ويُدخل يدويًا
+1. سجّل النطاق في https://dash.domain.digitalplat.org/
+2. Nameservers: `paityn.ns.cloudflare.com` + `sage.ns.cloudflare.com`
+3. GitHub Pages مفعّل على `master` branch
+4. Cloudflare: A records ← 185.199.108.153 + 109 + 110 + 111 (Proxy ON)
+5. Cloudflare: Page Rule ← `releveeducationgovmrcandidat.dpdns.org/` redirect 302 → `https://releve.education.gov.mr/`
