@@ -26,6 +26,12 @@
       .jh-entity-details > dd { margin-left: 0; margin-bottom: 0; padding: 0.5em 0; border-bottom: 1px solid #eee; }
       h2 { font-weight: 300; }
       .alert-notfound { text-align: center; padding: 3rem; }
+      @media (max-width: 767px) {
+        .navbar-brand .navbar-title { font-size: 0.95rem; }
+        .logo-img { height: 38px; width: 38px; }
+        .row-md.jh-entity-details { grid-template-columns: 1fr; }
+        .jh-entity-details > dt { text-align: start; font-weight: 600; }
+      }
     </style>
   </head>
   <body>
@@ -58,7 +64,7 @@
     <div class="container-fluid">
       <div class="card jh-card">
         <div class="d-flex justify-content-center">
-          <div class="col-8">
+          <div class="col-12 col-md-8">
             <div id="content-area"></div>
           </div>
         </div>
@@ -126,7 +132,8 @@
           lieuFr: "Lieu Naissance",
           dateNais: "Dat Naissance",
           btnText: "Retour",
-          notFound: "Aucun candidat trouvé pour ce numéro."
+          notFound: "Aucun candidat trouvé pour ce numéro.",
+          homeText: "Utilisez ?id=NUMERO pour afficher les résultats d'un candidat."
         },
         ar: {
           navTitle: "كشوف درجات البكالوريا",
@@ -148,65 +155,62 @@
           lieuFr: "Lieu Naissance",
           dateNais: "Dat Naissance",
           btnText: "رجوع",
-          notFound: "لم يتم العثور على مترشح بهذا الرقم."
+          notFound: "لم يتم العثور على مترشح بهذا الرقم.",
+          homeText: "استخدم ?id=رقم عشان تعرض نتائج المترشح."
         }
       };
 
       function render(c) {
         const t = translations[currentLang];
-        document.getElementById('content-area').innerHTML = `
-          <h2 id="main-title">${t.title}</h2><hr/>
-          <dl class="row-md jh-entity-details">
-            <dt><span id="label-nni">${t.nni}</span></dt><dd><span>${c.nni}</span></dd>
-            <dt><span id="label-dossier">${t.dossier}</span></dt><dd><span id="val-dossier">${c.dossier}</span></dd>
-            <dt><span id="label-serie">${t.serie}</span></dt><dd><span>${c.serie}</span></dd>
-            <dt><span id="label-decision">${t.decision}</span></dt><dd><span>${c.decision}</span></dd>
-            <dt><span id="label-centre-ar">${t.centreAr}</span></dt><dd><span>${c.centreAr}</span></dd>
-            <dt><span id="label-centre-fr">${t.centreFr}</span></dt><dd><span>${c.centreFr}</span></dd>
-            <dt><span id="label-nom-ar">${t.nomAr}</span></dt><dd><span>${c.nomAr}</span></dd>
-            <dt><span id="label-nom-fr">${t.nomFr}</span></dt><dd><span>${c.nomFr}</span></dd>
-            <dt><span id="label-moy">${t.moy}</span></dt><dd><span>${c.moy}</span></dd>
-            <dt><span id="label-anonyme">${t.anonyme}</span></dt><dd><span>${c.anonyme}</span></dd>
-            <dt><span id="label-etcc">${t.etcc}</span></dt><dd><span>${c.etcc}</span></dd>
-            <dt><span id="label-lieu-ar">${t.lieuAr}</span></dt><dd><span>${c.lieuAr}</span></dd>
-            <dt><span id="label-lieu-fr">${t.lieuFr}</span></dt><dd><span>${c.lieuFr}</span></dd>
-            <dt><span id="label-date-nais">${t.dateNais}</span></dt><dd><span>${c.dateNais}</span></dd>
-          </dl>
-          <button type="button" class="btn btn-info" onclick="window.history.back()">
-            &nbsp;<span id="btn-text">${t.btnText}</span>
-          </button>`;
+        document.getElementById('content-area').innerHTML =
+          '<h2 id="main-title">' + t.title + '</h2><hr/>' +
+          '<dl class="row-md jh-entity-details">' +
+          '<dt><span id="label-nni">' + t.nni + '</span></dt><dd><span>' + c.nni + '</span></dd>' +
+          '<dt><span id="label-dossier">' + t.dossier + '</span></dt><dd><span id="val-dossier">' + c.dossier + '</span></dd>' +
+          '<dt><span id="label-serie">' + t.serie + '</span></dt><dd><span>' + c.serie + '</span></dd>' +
+          '<dt><span id="label-decision">' + t.decision + '</span></dt><dd><span>' + c.decision + '</span></dd>' +
+          '<dt><span id="label-centre-ar">' + t.centreAr + '</span></dt><dd><span>' + c.centreAr + '</span></dd>' +
+          '<dt><span id="label-centre-fr">' + t.centreFr + '</span></dt><dd><span>' + c.centreFr + '</span></dd>' +
+          '<dt><span id="label-nom-ar">' + t.nomAr + '</span></dt><dd><span>' + c.nomAr + '</span></dd>' +
+          '<dt><span id="label-nom-fr">' + t.nomFr + '</span></dt><dd><span>' + c.nomFr + '</span></dd>' +
+          '<dt><span id="label-moy">' + t.moy + '</span></dt><dd><span>' + c.moy + '</span></dd>' +
+          '<dt><span id="label-anonyme">' + t.anonyme + '</span></dt><dd><span>' + c.anonyme + '</span></dd>' +
+          '<dt><span id="label-etcc">' + t.etcc + '</span></dt><dd><span>' + c.etcc + '</span></dd>' +
+          '<dt><span id="label-lieu-ar">' + t.lieuAr + '</span></dt><dd><span>' + c.lieuAr + '</span></dd>' +
+          '<dt><span id="label-lieu-fr">' + t.lieuFr + '</span></dt><dd><span>' + c.lieuFr + '</span></dd>' +
+          '<dt><span id="label-date-nais">' + t.dateNais + '</span></dt><dd><span>' + c.dateNais + '</span></dd>' +
+          '</dl>' +
+          '<button type="button" class="btn btn-info" onclick="window.history.back()">&nbsp;<span id="btn-text">' + t.btnText + '</span></button>';
       }
 
       function renderNotFound() {
-        const t = translations[currentLang];
-        document.getElementById('content-area').innerHTML = `
-          <div class="alert-notfound">
-            <h2>${t.title}</h2><hr/>
-            <p class="text-danger fs-5">${t.notFound}</p>
-            <button type="button" class="btn btn-info" onclick="window.history.back()">
-              <span id="btn-text">${t.btnText}</span>
-            </button>
-          </div>`;
+        var t = translations[currentLang];
+        document.getElementById('content-area').innerHTML =
+          '<div class="alert-notfound">' +
+          '<h2>' + t.title + '</h2><hr/>' +
+          '<p class="text-danger fs-5">' + t.notFound + '</p>' +
+          '<button type="button" class="btn btn-info" onclick="window.history.back()"><span>' + t.btnText + '</span></button>' +
+          '</div>';
       }
 
       function loadCandidate() {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
         if (id && candidates[id]) {
           render(candidates[id]);
         } else if (id) {
           renderNotFound();
         } else {
-          document.getElementById('content-area').innerHTML = `
-            <h2>Relevés des notes du BAC</h2><hr/>
-            <p class="text-muted">Utilisez ?id=NUMERO pour afficher les résultats d'un candidat.</p>`;
+          document.getElementById('content-area').innerHTML =
+            '<h2>Relevés des notes du BAC</h2><hr/>' +
+            '<p class="text-muted">' + translations[currentLang].homeText + '</p>';
         }
       }
 
       function toggleLanguage(event) {
         if (event) event.preventDefault();
         currentLang = currentLang === 'fr' ? 'ar' : 'fr';
-        const t = translations[currentLang];
+        var t = translations[currentLang];
         document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
         document.documentElement.setAttribute('lang', currentLang);
         document.title = t.navTitle;
