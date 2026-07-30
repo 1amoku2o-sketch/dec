@@ -12,12 +12,13 @@
     />
     <style>
       .navbar { padding: 0.2rem 1rem; }
+      .bg-green { background-color: #00a95c; }
       .navbar ul.navbar-nav .nav-item { margin-left: 0.5em; }
       .navbar a.nav-link { font-weight: 400; color: #fff; }
       .navbar a.nav-link:hover { color: rgba(255,255,255,0.85); }
       .navbar a.nav-link > span { display: flex; align-items: center; gap: 0.3125rem; }
       .navbar-brand.logo { padding: 0 7px; }
-      .logo-img { height: 45px; width: 45px; display: inline-block; vertical-align: middle; margin-inline-end: 12px; }
+      .logo-img { height: 45px; width: 45px; display: inline-block; vertical-align: middle; margin-inline-end: 12px; object-fit: contain; }
       .navbar-title { display: inline-block; vertical-align: middle; color: #fff; font-weight: 700; }
       @media (max-width: 767px) {
         .navbar-brand .navbar-title { font-size: 0.85rem; max-width: calc(100vw - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -34,10 +35,10 @@
     </style>
   </head>
   <body>
-    <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+    <nav class="navbar navbar-dark navbar-expand-md bg-green">
       <div class="container-fluid">
         <a class="navbar-brand logo" href="/">
-          <span class="logo-img"></span>
+          <img src="logo.png" alt="Armoiries de la Mauritanie" class="logo-img" />
           <span class="navbar-title" id="nav-title">Relevés des notes du BAC</span>
         </a>
         <a href="javascript:void(0);" class="navbar-toggler d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
