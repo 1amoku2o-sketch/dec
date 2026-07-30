@@ -164,11 +164,11 @@ const translations = {
 ## شريط التنقل (Navbar)
 
 ```
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav class="navbar navbar-dark navbar-expand-md bg-green">
 ```
 
-- الخلفية: `bg-dark` (أسود)
-- الشعار: `<span class="logo-img"></span>` (فارغ، يتم تعبئته بالصورة عبر CSS)
+- الخلفية: `.bg-green` = `#00a95c` (أخضر)
+- الشعار: `<img src="logo.png" class="logo-img" />`
 - زر القائمة: `<a class="navbar-toggler d-lg-none">` يظهر فقط في الشاشات الصغيرة
 - لون Bootstrap: `navbar-dark`
 
