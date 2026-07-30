@@ -176,24 +176,28 @@
               <hr />
 
               <dl class="row-md jh-entity-details">
-                <dt><span id="label-nni">N° Candidat</span></dt>
+                <dt><span id="label-nni">Numéro National d'Identification (NNI)</span></dt>
                 <dd>
-                  <span id="val-nni">3898414384</span>
+                  <span>3898414384</span>
                 </dd>
-                <dt><span id="label-dossier">N° Inscription</span></dt>
+                <dt><span id="label-dossier">N° Dossier</span></dt>
                 <dd>
                   <span id="val-dossier">00309</span>
                 </dd>
                 <dt><span id="label-serie">Serie</span></dt>
                 <dd>
-                  <span id="val-serie">Mathématiques</span>
+                  <span>Mathématiques</span>
                 </dd>
                 <dt><span id="label-decision">Décision</span></dt>
                 <dd>
-                  <span id="val-decision">Admis - Bien</span>
+                  <span>Admis</span>
                 </dd>
 
-                <dt><span id="label-centre-ar">Centre</span></dt>
+                <dt><span id="label-centre-ar">Centre en Arabe</span></dt>
+                <dd>
+                  <span>ثانوية التميز 3</span>
+                </dd>
+                <dt><span id="label-centre-fr">Centre en Français</span></dt>
                 <dd>
                   <span>Lycée Excellence 3</span>
                 </dd>
@@ -205,94 +209,34 @@
                 <dd>
                   <span>Abdallahi Mohamed Abdelrahmane Dine</span>
                 </dd>
+                <dt><span id="label-moy">Moy Générale</span></dt>
+                <dd>
+                  <span>14.5128125</span>
+                </dd>
+
+                <dt><span id="label-anonyme">No ANONYME</span></dt>
+                <dd>
+                  <span>3898414384</span>
+                </dd>
+
+                <dt><span id="label-etcc">No ETCC</span></dt>
+                <dd>
+                  <span>MT09</span>
+                </dd>
+                <dt><span id="label-lieu-ar">Lieu Naissance en Arabe</span></dt>
+                <dd>
+                  <span>تيارت</span>
+                </dd>
                 <dt><span id="label-lieu-fr">Lieu Naissance</span></dt>
                 <dd>
-                  <span id="val-lieu-fr">Teyaret</span>
+                  <span>Teyaret</span>
                 </dd>
-                <dt><span id="label-date-nais">Date Naissance</span></dt>
+
+                <dt><span id="label-date-nais">Dat Naissance</span></dt>
                 <dd>
                   <span id="val-date-nais">21/12/2006</span>
                 </dd>
-                <dt><span id="label-moy">Moy Générale</span></dt>
-                <dd>
-                  <span id="val-moy">14.51</span>
-                </dd>
               </dl>
-
-              <h5 class="mt-4" id="subjects-title">Relevé des Notes</h5>
-              <hr />
-              <div class="table-responsive">
-                <table class="table table-bordered table-sm" id="notes-table">
-                  <thead class="table-light">
-                    <tr>
-                      <th>Matière</th>
-                      <th>Note /20</th>
-                      <th>Coef</th>
-                      <th>Points</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Mathématiques</td>
-                      <td>13.00</td>
-                      <td>9</td>
-                      <td>117.00</td>
-                    </tr>
-                    <tr>
-                      <td>Physiques Chimie</td>
-                      <td>16.30</td>
-                      <td>8</td>
-                      <td>130.40</td>
-                    </tr>
-                    <tr>
-                      <td>Sciences Naturelles</td>
-                      <td>14.25</td>
-                      <td>4</td>
-                      <td>57.00</td>
-                    </tr>
-                    <tr>
-                      <td>Arabe</td>
-                      <td>17.55</td>
-                      <td>3</td>
-                      <td>52.65</td>
-                    </tr>
-                    <tr>
-                      <td>Français</td>
-                      <td>12.30</td>
-                      <td>3</td>
-                      <td>36.90</td>
-                    </tr>
-                    <tr>
-                      <td>Anglais</td>
-                      <td>11.80</td>
-                      <td>2</td>
-                      <td>23.60</td>
-                    </tr>
-                    <tr>
-                      <td>Instruction Religieuse</td>
-                      <td>14.93</td>
-                      <td>2</td>
-                      <td>29.86</td>
-                    </tr>
-                    <tr>
-                      <td>Education Physique</td>
-                      <td>17.00</td>
-                      <td>1</td>
-                      <td>17.00</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="table-light">
-                    <tr>
-                      <th colspan="3">TOTAL GÉNÉRAL</th>
-                      <th>464.41</th>
-                    </tr>
-                    <tr>
-                      <th colspan="3">MOYENNE</th>
-                      <th>14.51</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
 
               <button type="button" class="btn btn-info" id="btn-retour">
                 <svg
@@ -339,30 +283,21 @@
           home: "Accueil",
           langSwitch: "العربية",
           title: "Candidat",
-          nni: "N° Candidat",
-          nniVal: "3898414384",
-          dossier: "N° Inscription",
-          dossierVal: "00309",
+          nni: "Numéro National d'Identification (NNI)",
+          dossier: "N° Dossier",
           serie: "Serie",
-          serieVal: "Mathématiques",
           decision: "Décision",
-          decisionVal: "Admis - Bien",
-          centreAr: "Centre",
-          centreArVal: "Lycée Excellence 3",
+          centreAr: "Centre en Arabe",
+          centreFr: "Centre en Français",
           nomAr: "Nom en Arabe",
-          nomArVal: "عبدالله محمد عبدالرحمن دين",
           nomFr: "Nom",
-          nomFrVal: "Abdallahi Mohamed Abdelrahmane Dine",
-          lieuFr: "Lieu Naissance",
-          lieuFrVal: "Teyaret",
-          dateNais: "Date Naissance",
-          dateNaisVal: "21/12/2006",
           moy: "Moy Générale",
-          moyVal: "14.51",
-          subjectsTitle: "Relevé des Notes",
-          totalLabel: "TOTAL GÉNÉNÉRAL",
-          totalVal: "464.41",
-          moyLabel: "MOYENNE",
+          anonyme: "No ANONYME",
+          etcc: "No ETCC",
+          lieuAr: "Lieu Naissance en Arabe",
+          lieuFr: "Lieu Naissance",
+          dateNais: "Dat Naissance",
+          dateNaisVal: "21/12/2006",
           btnText: "Retour"
         },
         ar: {
@@ -370,30 +305,21 @@
           home: "الصفحة الرئيسية",
           langSwitch: "Français",
           title: "المترشح",
-          nni: "رقم الترشح",
-          nniVal: "3898414384",
-          dossier: "رقم التسجيل",
-          dossierVal: "00309",
+          nni: "الرقم الوطني للتعريف",
+          dossier: "رقم الترشح",
           serie: "الشعبة",
-          serieVal: "رياضيات",
           decision: "القرار",
-          decisionVal: "ناجح - جيد",
-          centreAr: " المركز",
-          centreArVal: "ثانوية التميز 3",
-          nomAr: "الإسم بالعربية",
-          nomArVal: "عبدالله محمد عبدالرحمن دين",
-          nomFr: "الإسم بالفرنسية",
-          nomFrVal: "Abdallahi Mohamed Abdelrahmane Dine",
-          lieuFr: "مكان الميلاد",
-          lieuFrVal: "تيارت",
-          dateNais: "تاريخ الميلاد",
-          dateNaisVal: "21/12/2006",
+          centreAr: "Centre en Arabe",
+          centreFr: "Centre en Français",
+          nomAr: "Nom en Arabe",
+          nomFr: "الإسم",
           moy: "المعدل العام",
-          moyVal: "14.51",
-          subjectsTitle: "كشف الدرجات",
-          totalLabel: "المجموع العام",
-          totalVal: "464.41",
-          moyLabel: "المعدل",
+          anonyme: "No ANONYME",
+          etcc: "No ETCC",
+          lieuAr: "Lieu Naissance en Arabe",
+          lieuFr: "Lieu Naissance",
+          dateNais: "Dat Naissance",
+          dateNaisVal: "21 ديسمبر 2006",
           btnText: "رجوع"
         }
       };
@@ -418,24 +344,21 @@
         document.getElementById('main-title').textContent = t.title;
 
         document.getElementById('label-nni').textContent = t.nni;
-        document.getElementById('val-nni').textContent = t.nniVal;
         document.getElementById('label-dossier').textContent = t.dossier;
-        document.getElementById('val-dossier').textContent = t.dossierVal;
         document.getElementById('label-serie').textContent = t.serie;
-        document.getElementById('val-serie').textContent = t.serieVal;
         document.getElementById('label-decision').textContent = t.decision;
-        document.getElementById('val-decision').textContent = t.decisionVal;
         document.getElementById('label-centre-ar').textContent = t.centreAr;
+        document.getElementById('label-centre-fr').textContent = t.centreFr;
         document.getElementById('label-nom-ar').textContent = t.nomAr;
-        document.getElementById('val-nom-ar').textContent = t.nomArVal;
         document.getElementById('label-nom-fr').textContent = t.nomFr;
-        document.getElementById('label-lieu-fr').textContent = t.lieuFr;
-        document.getElementById('val-lieu-fr').textContent = t.lieuFrVal;
-        document.getElementById('label-date-nais').textContent = t.dateNais;
-        document.getElementById('val-date-nais').textContent = t.dateNaisVal;
         document.getElementById('label-moy').textContent = t.moy;
-        document.getElementById('val-moy').textContent = t.moyVal;
-        document.getElementById('subjects-title').textContent = t.subjectsTitle;
+        document.getElementById('label-anonyme').textContent = t.anonyme;
+        document.getElementById('label-etcc').textContent = t.etcc;
+        document.getElementById('label-lieu-ar').textContent = t.lieuAr;
+        document.getElementById('label-lieu-fr').textContent = t.lieuFr;
+        document.getElementById('label-date-nais').textContent = t.dateNais;
+
+        document.getElementById('val-date-nais').textContent = t.dateNaisVal;
 
         document.getElementById('btn-text').textContent = t.btnText;
 
