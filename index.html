@@ -20,6 +20,10 @@
       .navbar-brand.logo { padding: 0 7px; }
       .logo-img { height: 45px; width: 45px; display: inline-block; vertical-align: middle; margin-inline-end: 12px; object-fit: contain; }
       .navbar-title { display: inline-block; vertical-align: middle; color: #fff; font-weight: 700; }
+      @media (max-width: 767px) {
+        .navbar-brand .navbar-title { font-size: 0.85rem; max-width: calc(100vw - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .logo-img { height: 38px; width: 38px; }
+      }
       .jh-card { padding: 1.5%; margin-top: 20px; border: none; }
       .row-md.jh-entity-details { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; line-height: 1.5; }
       .jh-entity-details > dt { margin-bottom: 0; padding: 0.5em 0; text-align: right; }
